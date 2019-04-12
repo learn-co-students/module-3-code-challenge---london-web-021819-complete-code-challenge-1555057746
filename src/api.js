@@ -19,8 +19,24 @@ function updateLikes() {
       Accept: "application/json",
       "Content-Type": "application/json"
     },
-    body: { image_id: 2414 }
+    body: JSON.stringify({
+      image_id: 2414
+    })
   }).then(resp => resp.json());
 }
 
 // update comments
+function updateComments(newComment) {
+  //   debugger;
+  return fetch(commentsURL, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      image_id: 2414,
+      content: newComment
+    })
+  }).then(resp => resp.json());
+}
